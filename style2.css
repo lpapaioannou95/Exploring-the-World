@@ -1,0 +1,216 @@
+/* ----------------- Βασικό ----------------- */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ----------------- Sidebar ----------------- */
+#sidebarMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #000; /* Ομοιόμορφο μαύρο */
+  padding-top: 2rem;
+  z-index: 1040;
+  transition: transform 0.3s ease;
+}
+
+#sidebarMenu .nav-link {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  transition: background-color 0.3s;
+}
+
+#sidebarMenu .nav-link:hover,
+#sidebarMenu .nav-link.active {
+  background-color: #343a40;
+}
+
+/* ----------------- Main content ----------------- */
+#mainContent {
+  flex: 1;
+  padding: 2rem;
+  padding-left: 240px; /* Space για sidebar */
+  background-color: #000;
+}
+
+/* ----------------- Hero section ----------------- */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+              url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+}
+
+.hero-content {
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------- Travel cards ----------------- */
+.travel-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.travel-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.travel-card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:flex; justify-content:center; align-items:center;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing:1px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius:12px;
+}
+
+.travel-card:hover .overlay {
+  opacity: 1;
+}
+
+/* ----------------- Footer ----------------- */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto; /* 👈 αυτό κρατάει το footer κάτω */
+  padding-left: 240px;
+}
+
+
+footer .social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* ----------------- Mobile ----------------- */
+@media (max-width: 768px) {
+  #sidebarMenu {
+    top: 70px;              /* 👈 κατεβαίνει κάτω από το hamburger */
+    height: calc(100vh - 70px);
+    transform: translateX(-100%);
+    box-shadow: 2px 0 12px rgba(0,0,0,0.6);
+  }
+
+  #sidebarMenu.show {
+    transform: translateX(0);
+  }
+
+  #mobileMenuBtn {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background: #212529;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1.5rem;
+  }
+
+  #mainContent, footer {
+    padding-left: 1rem; /* Mobile χωρίς margin */
+  }
+}
+
+@media (min-width: 769px) {
+  #mobileMenuBtn {
+    display: none;
+  }
+}
+/* ----------------- About Page ----------------- */
+
+#mainContent h1,
+#mainContent p,
+#mainContent .lead {
+  color: #fff;
+}
+
+#mainContent label {
+  color: #fff;
+}
+
+#mainContent .form-control {
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+#mainContent .form-control::placeholder {
+  color: #bbb;
+}
+
+#mainContent .form-control:focus {
+  background-color: #111;
+  color: #fff;
+  border-color: #666;
+  box-shadow: none;
+}
+@media (max-width: 768px) {
+
+  #mainContent {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  footer {
+    padding-left: 0;
+  }
+
+}
+/* ----------------- Trips Page ----------------- */
+#mainContent {
+    color: #fff; /* όλα τα κείμενα λευκά */
+}
+
+#mainContent h2,
+#mainContent h5,
+#mainContent p,
+#mainContent .overlay {
+    color: #fff; /* εξασφαλίζει ότι τίτλοι, περιγραφές και overlay είναι λευκά */
+}
+
