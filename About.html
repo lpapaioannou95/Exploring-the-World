@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Exploring the World</title>
+  <meta name="description"
+    content="About Loukia Papaioannou - Trips, experiences & stunning moments from around the world">
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Sidebar Menu -->
+  <nav id="sidebarMenu">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="arxiki.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="taxidia.html" class="nav-link">Trips</a></li>
+      <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hamburger -->
+  <button id="mobileMenuBtn" aria-label="Άνοιγμα μενού">☰</button>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+
+    <!-- About Section -->
+    <section class="container py-5">
+      <div class="row align-items-center">
+
+        <!-- Photo -->
+        <div class="col-md-5 mb-4 mb-md-0 text-center">
+          <img src="/ameriki/IMG_20221214_145152.jpg" alt="Loukia Papaioannou" class="img-fluid rounded shadow">
+        </div>
+
+        <!-- Text -->
+        <div class="col-md-7">
+          <h1 class="fw-bold mb-4">About Me ✨</h1>
+
+          <p class="lead">
+            Hello! I'm <strong>Loukia Papaioannou</strong> and I love exploring the world.
+          </p>
+
+          <p>
+            Travel, for me, is a constant pursuit of new experiences and cultures.
+            Through this page, I share images from destinations I’ve visited — places that stood out and left their own
+            mark.
+          </p>
+
+          <p>
+            From romantic European cities to exotic destinations, every journey is a new story worth telling.
+          </p>
+
+          <div class="mt-4">
+            <a href="taxidia.html" class="btn btn-outline-light me-3">View my trips</a>
+            <a href=https://mail.google.com/mail/?view=cm&fs=1&to=lucypap95@gmail.com&su=Travel%20Collaboration"
+              target="_blank" class="btn btn-light">Contact Me</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Loukia Papaioannou</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/loukia.papaioannou.3" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/lucypap95/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const navLinks = document.querySelectorAll('#sidebarMenu .nav-link');
+    const currentPage = window.location.pathname.split("/").pop();
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+    // Αν είναι η αρχική χωρίς όνομα αρχείου
+    if (currentPage === "" || currentPage === "index.html") {
+      document.querySelector('a[href="arxiki.html"]')?.classList.add("active");
+    }
+
+    // Sidebar toggle mobile
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    mobileMenuBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      sidebarMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', e => {
+      if (!sidebarMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        sidebarMenu.classList.remove('show');
+      }
+    });
+  </script>
+
+
+
+</body>
+
+</html>
